@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Ordena JSON</title>
+    <meta name="description" content="Ordenar un JSON en Javascript">
+    <meta name="author" content="Fernando Magrosoto V.">
+    <style>
+        body {
+            background-color: white;
+            color: rgb(51,51,51);
+            font-family: sans-serif;
+            font-size: 14px
+        }
+        footer {
+            font-size: 12px;
+            padding: 10px;
+            background-color: rgba(255,200,0,.1);
+            border: 1px rgba(200,200,0,.25) solid;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Ordenar por fecha</h2>
+
+    <label>
+        <input name="ordAl" type="checkbox" id="ordAl" value="first_checkbox">
+        Ordenar alfabeticamente
+    </label>
+
+    <label>
+        <input name="ordeFe" type="checkbox" id="ordeFe" value="first_checkbox">
+        Ordenar por fecha
+    </label>
+
+    <h2>por nombre</h2>
+    <div id ="nomm"  >
+
+    </div>
+
+    <h2>por lex</h2>
+    <div id ="lexx"  >
+        
+    </div>
+
+    <br> 
+
+    <label>
+        <input name="procesa" type="checkbox" id="procesar" value="first_checkbox">
+        procesar
+    </label>
+
+    <h2>info formateada</h2>
+    <div id="infof">
+
+    </div>
+
+
+
+
+    <script src="ordenarJSON.js"></script>
+
+    <script>
+
+    $(".nombress").change(function() {
+        if(this.checked) {
+            console.log(this.id);
+            institucionesSelecionadas.push( this.id );
+            console.log(institucionesSelecionadas);
+        }
+        if( !this.checked) {
+            console.log("no check");
+            este = this.id;
+            institucionesSelecionadasAux = arrayRemove( institucionesSelecionadas, este);
+        console.log(institucionesSelecionadas);
+        institucionesSelecionadas = institucionesSelecionadasAux;
+        }
+    });
+
+    </script>
+
+
+<script>
+        $(".lexss").change(function() {
+        if(this.checked) {
+            console.log(this.id);
+            categoriasSelecionadas.push( this.id );
+            console.log(categoriasSelecionadas);
+        }
+        if( !this.checked) {
+            console.log("no check");
+            este = this.id;
+            categoriasSelecionadasAux = arrayRemove( categoriasSelecionadas, este);
+        console.log(categoriasSelecionadas);
+        categoriasSelecionadas = categoriasSelecionadasAux;
+        console.log(categoriasSelecionadas);
+        }
+    });
+</script>
+
+
+    <script>
+
+    $("#procesar").change(function() {
+        
+        if( this.checked){
+            procesarFiltros();
+        }
+    });
+
+    </script>
+
+
+<script>
+    $("#ordAl").change(function() {
+    if(this.checked) {
+        odenarAlfab = true;
+    }
+    if( !this.checked) {
+        odenarAlfab = false;
+    }
+
+});
+</script>
+
+<script>
+    $("#ordeFe").change(function() {
+    if(this.checked) {
+        ordenarFecha = true;
+    }
+    if( !this.checked) {
+        ordenarFecha = false;
+    }
+
+});
+</script>
+
+</body>
+</html>
